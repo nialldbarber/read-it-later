@@ -13,6 +13,11 @@ const Nav = () => (
             Archives
           </Link>
         </li>
+        <li>
+          <Link to="/re-reads">
+            Re-Reads
+          </Link>
+        </li>
       </ul>
     </nav>
   </header>
