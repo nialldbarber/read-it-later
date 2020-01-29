@@ -1,19 +1,15 @@
-# TODOS: 
-
-* Form that creates a new category
-  - Category gets added to list of categories
-
-* Form that creates a link
-  - Link needs to be added to a category
-
 Types
   - Link
   - Category
 
 Queries
-  - getAllLinks
-  - getLinkByCategory
+  - Get all links
+  - Get link by category
+  TODO: - Get archived links
+  TODO: - Get saved links
 
 Mutations 
   - Add link
   - Add category
+  TODO: - Archive link
+  TODO: - Save link
