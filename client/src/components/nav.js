@@ -6,6 +6,15 @@ const Nav = () => (
     <Link to="/">
       <p>LOGO</p>
     </Link>
+    <nav>
+      <ul>
+        <li>
+          <Link to="/archives">
+            Archives
+          </Link>
+        </li>
+      </ul>
+    </nav>
   </header>
 )
 
