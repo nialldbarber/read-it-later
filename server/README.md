@@ -11,9 +11,13 @@ Types
   - Category
 
 Queries
-  - getAllLinks
-  - getLinkByCategory
+  - Get all links
+  - Get link by category
+  - Get archived links
+  - Get saved links
 
 Mutations 
   - Add link
   - Add category
+  - Archive link
+  - Save link
