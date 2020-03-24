@@ -6,7 +6,9 @@ const link = {
   Query: {
     getAllLinks: async () => {
       try {
+        // this should exclude archived links
         const links = await Link.find().sort({ createdAt: -1 })
+        console.log(links)
         return links
       } catch (err) {
         throw new Error(err)
@@ -41,6 +43,13 @@ const link = {
         throw new UserInputError('Store not found')
       }
     },
+    archiveLink: async (_, { _id, category }) => {
+      // add the link to list of archived links
+      
+      // find link by
+      // remove it from all categories
+      // add it to archived links 
+    }
   },
 }
 
