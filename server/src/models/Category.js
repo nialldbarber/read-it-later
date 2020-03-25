@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose'
+import { Schema, model } from 'mongoose';
 
 const categorySchema = new Schema({
   category: String,
@@ -8,6 +8,6 @@ const categorySchema = new Schema({
       category: String,
     },
   ],
-})
+});
 
-export const Category = model('Category', categorySchema)
+export const Category = model('Category', categorySchema);

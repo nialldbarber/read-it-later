@@ -1,5 +1,5 @@
-import link from '~/schema/resolvers/link'
-import category from '~/schema/resolvers/category'
+import link from '~/schema/resolvers/link';
+import category from '~/schema/resolvers/category';
 
 const resolvers = {
   Query: {
@@ -10,6 +10,6 @@ const resolvers = {
     ...link.Mutation,
     ...category.Mutation,
   },
-}
+};
 
-export default resolvers
+export default resolvers;

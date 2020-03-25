@@ -1,8 +1,8 @@
 module.exports = (api) => {
-  api.cache(true)
+  api.cache(true);
 
   return {
-    presets: [ '@babel/env' ],
+    presets: ['@babel/env'],
     plugins: [
       [
         'babel-plugin-root-import',
@@ -12,5 +12,5 @@ module.exports = (api) => {
         },
       ],
     ],
-  }
-}
+  };
+};

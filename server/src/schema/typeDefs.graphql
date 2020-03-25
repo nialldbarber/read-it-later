@@ -1,14 +1,13 @@
 type Query {
-  getAllLinks: [Link!]!
   getLinksByCategory(_id: ID!): [Link!]!
   getAllCategories: [Category!]!
-  getArchivedLinks: [Link!]!  
+  getArchivedLinks: [Link!]!
 }
 
 type Mutation {
   createLink(text: String!, category: String!): Category!
   createCategory(category: String!): Category!
-  archiveLink(_id: ID!): String!
+  archiveLink(category: String!, _id: ID!): Link
 }
 
 type Link {
