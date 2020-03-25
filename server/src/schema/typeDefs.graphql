@@ -1,26 +1,26 @@
 type Query {
-  getAllLinks: [Link!]!
-  getLinksByCategory(_id: ID!): [Link!]!
+  getLinksByCategory(_id: ID!): Category!
   getAllCategories: [Category!]!
-  getArchivedLinks: [Link!]!  
+  getArchivedLinks: [Link!]!
 }
 
 type Mutation {
-  createLink(text: String!, category: String!): Category!
+  createLink(text: String!, link: String!, category: String!): Link!
   createCategory(category: String!): Category!
-  archiveLink(_id: ID!): String!
+  archiveLink(category: String!, _id: ID!): Link
 }
 
 type Link {
   _id: ID!
   text: String!
+  link: String!
   category: Category
-  archived: Boolean
-  saved: Boolean
 }
 
 type Category {
   _id: ID!
   category: String
+  text: String
+  link: String
   links: [Link!]!
 }

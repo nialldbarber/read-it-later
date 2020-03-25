@@ -1,10 +1,9 @@
-import { Schema, model } from 'mongoose'
+import { Schema, model } from 'mongoose';
 
 const linkSchema = new Schema({
   text: String,
   category: String,
-  archived: Boolean,
-  saved: Boolean
-})
+  link: String,
+});
 
-export const Link = model('Link', linkSchema)
+export const Link = model('Link', linkSchema);
