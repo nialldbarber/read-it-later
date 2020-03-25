@@ -5,8 +5,16 @@ const category = {
   Query: {
     getAllCategories: async () => {
       try {
-        // this should exclude archived links
         const categories = await Category.find().sort({ createdAt: -1 });
+        return categories;
+      } catch (err) {
+        throw new Error(err);
+      }
+    },
+    getLinksByCategory: async (_, { _id }) => {
+      try {
+        const categories = await Category.findById(_id);
+        console.log(categories);
         return categories;
       } catch (err) {
         throw new Error(err);

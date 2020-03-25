@@ -10,4 +10,4 @@ module.exports = {
   arrowParens: 'always',
   auto_format_on_save: true,
   formatOnSave: true,
-}
+};
