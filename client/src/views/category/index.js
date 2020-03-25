@@ -17,12 +17,18 @@ const CategoryPage = () => {
 
   console.log(data);
 
-  const { category, link, text } = data.getLinksByCategory;
+  const { category, links, text } = data.getLinksByCategory;
 
   return (
     <div>
       <h1>{category}</h1>
       <p>Where all the links for category will be</p>
+      <h2>Links</h2>
+      <ul>
+        {links.map((el) => (
+          <li>{el.text}</li>
+        ))}
+      </ul>
     </div>
   );
 };

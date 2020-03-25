@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
+import CardLink from '~/components/card';
+import { CardContainer } from '~/styles/components/card';
 import { GET_ALL_CATEGORIES } from '~/views/homepage/schema';
 
 const Homepage = () => {
@@ -13,13 +14,11 @@ const Homepage = () => {
     <div>
       <h1>Homepage</h1>
       <p>Where all the categories will be</p>
-      <ul>
-        {data.getAllCategories.map(({ _id, category }) => (
-          <li key={_id}>
-            <Link to={`/category/${_id}`}>{category}</Link>
-          </li>
+      <CardContainer>
+        {data?.getAllCategories.map(({ _id, category }) => (
+          <CardLink key={_id} id={_id} category={category} />
         ))}
-      </ul>
+      </CardContainer>
     </div>
   );
 };
