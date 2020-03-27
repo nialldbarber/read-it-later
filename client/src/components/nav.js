@@ -6,9 +6,7 @@ import { Container, Header } from '~/styles/components/nav';
 import logo from '~/assets/logo.svg';
 
 const Nav = () => {
-  const location = useLocation();
-
-  console.log(location);
+  const { pathname } = useLocation();
 
   return (
     <Header>
@@ -21,9 +19,13 @@ const Nav = () => {
         <li>
           <Button text="Create Category" />
         </li>
-        <li>
-          <Button text="Add Link" />
-        </li>
+        {pathname === '/' ? (
+          ''
+        ) : (
+          <li>
+            <Button text="Add Link" />
+          </li>
+        )}
       </ul>
     </Header>
   );

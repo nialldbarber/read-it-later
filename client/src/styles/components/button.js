@@ -3,9 +3,15 @@ import styled from 'styled-components';
 export const Container = styled.div`
   button {
     font-size: 1rem;
-    padding: 7px 12px 5px;
+    padding: 0.7rem 1rem;
     background-color: ${(props) => props.theme.colours.darkerBlue};
     color: ${(props) => props.theme.colours.yellow};
     border-radius: 5px;
+    transition: 0.15s ease 0s;
+
+    &:hover {
+      background-color: ${(props) => props.theme.colours.yellow};
+      color: ${(props) => props.theme.colours.darkerBlue};
+    }
   }
 `;

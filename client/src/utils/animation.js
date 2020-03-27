@@ -1,5 +1,6 @@
 const easing = [0.6, -0.05, 0.01, 0.99];
 
+// Animations
 export const fadeInUp = {
   initial: {
     y: 60,
@@ -34,4 +35,11 @@ export const pageVariants = {
   exit: {
     opacity: 0,
   },
+};
+
+// Functions
+export const onPageExit = () => {
+  if (typeof window !== 'undefined') {
+    window.scrollTo({ top: 0 });
+  }
 };
