@@ -1,15 +1,7 @@
-Types
-  - Link
-  - Category
+# Features to add
 
-Queries
-  - Get all links
-  - Get link by category
-  TODO: - Get archived links
-  TODO: - Get saved links
+# Login
 
-Mutations 
-  - Add link
-  - Add category
-  TODO: - Archive link
-  TODO: - Save link
+## Links
+
+- Date added
