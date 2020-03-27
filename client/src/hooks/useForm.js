@@ -6,16 +6,13 @@ const useForm = (callback, initialState = {}) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
-    console.log(values);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     callback();
-    resetValues();
+    setValues(initialState);
   };
-
-  const resetValues = () => setValues(initialState);
 
   return {
     values,
