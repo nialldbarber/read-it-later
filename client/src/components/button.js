@@ -1,10 +1,10 @@
 import React from 'react';
 import { Container } from '~/styles/components/button';
 
-const Button = ({ text }) => {
+const Button = ({ text, click }) => {
   return (
     <Container>
-      <button>{text}</button>
+      <button onClick={click}>{text}</button>
     </Container>
   );
 };
