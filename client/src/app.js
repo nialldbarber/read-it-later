@@ -8,6 +8,7 @@ import CategoryPage from '~/views/category';
 import Nav from '~/components/nav';
 import CreateCategory from '~/components/create-category';
 import { client } from '~/utils/apollo';
+import { onPageExit } from '~/utils/animation';
 import { GlobalStyle } from '~/styles/base/global';
 import { theme } from '~/styles/utils/variables';
 
@@ -17,7 +18,7 @@ const App = () => (
       <GlobalStyle />
       <Router>
         <Nav />
-        <AnimatePresence exitBeforeEnter>
+        <AnimatePresence exitBeforeEnter onExitComplete={onPageExit}>
           <Switch>
             <Route exact path="/" component={Homepage} />
             <Route path="/category/:id" component={CategoryPage} />
