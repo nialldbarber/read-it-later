@@ -21,10 +21,13 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: ${(props) => props.theme.fonts.main};
+    background-color: ${(props) => props.theme.colours.darkBlue};
+    color: ${(props) => props.theme.colours.white};
   }
 
   a {
     text-decoration: none;
+    color: ${(props) => props.theme.colours.yellow};
   }
 
   ul {

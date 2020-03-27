@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ApolloProvider } from 'react-apollo';
 import { ThemeProvider } from 'styled-components';
+import { AnimatePresence } from 'framer-motion';
 import Homepage from '~/views/homepage';
 import CategoryPage from '~/views/category';
 import Nav from '~/components/nav';
@@ -16,10 +17,12 @@ const App = () => (
       <GlobalStyle />
       <Router>
         <Nav />
-        <Switch>
-          <Route exact path="/" component={Homepage} />
-          <Route path="/category/:id" component={CategoryPage} />
-        </Switch>
+        <AnimatePresence exitBeforeEnter>
+          <Switch>
+            <Route exact path="/" component={Homepage} />
+            <Route path="/category/:id" component={CategoryPage} />
+          </Switch>
+        </AnimatePresence>
       </Router>
       <CreateCategory />
     </ThemeProvider>
