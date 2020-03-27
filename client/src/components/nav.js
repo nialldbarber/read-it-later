@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import SVG from 'react-inlinesvg';
 import Button from '~/components/button';
+import { Container, Header } from '~/styles/components/nav';
+import logo from '~/assets/logo.svg';
 
 const Nav = () => {
   const location = useLocation();
@@ -8,9 +11,11 @@ const Nav = () => {
   console.log(location);
 
   return (
-    <header>
+    <Header>
       <Link to="/">
-        <p>Read it Later</p>
+        <Container>
+          <SVG src={logo} alt="Logo" aria-label="Logo" />
+        </Container>
       </Link>
       <ul>
         <li>
@@ -20,7 +25,7 @@ const Nav = () => {
           <Button text="Add Link" />
         </li>
       </ul>
-    </header>
+    </Header>
   );
 };
 
