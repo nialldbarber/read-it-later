@@ -1,25 +1,27 @@
 import { AuthenticationError, UserInputError } from 'apollo-server-express';
 import { Link } from '~/models/Link';
 import { Category } from '~/models/Category';
+import getTitleFromUrl from '~/utils/scraper';
 
 const link = {
   Mutation: {
-    createLink: async (_, { _id, text, link, category }) => {
-      // GET ID
+    createLink: async (_, { _id, link, category }) => {
       const currentCategory = await Category.find({ category });
       const categoryGetId = currentCategory.map((el) => el._id.toString());
       const cat = await Category.findById(categoryGetId);
 
+      // Fetch <title> from link provided
+      const textFromUrl = await getTitleFromUrl(link);
+
       const newLink = new Link({
         _id,
-        text,
+        text: textFromUrl,
         link,
         category,
       });
 
       if (currentCategory.length > 0) {
         cat.links.unshift(newLink);
-
         await cat.save();
         return cat;
       } else {
@@ -35,7 +37,6 @@ const link = {
 
         if (linkIndex !== -1) {
           links.splice(linkIndex, 1);
-
           await currentCategory.save();
           return currentCategory;
         } else {

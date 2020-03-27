@@ -11,7 +11,7 @@ export const Container = styled.li`
   background-color: ${(props) => props.theme.colours.darkerBlue};
   border-radius: 5px;
   border-bottom: 5px solid ${(props) => props.theme.colours.yellow};
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
   cursor: pointer;
 
   a {
