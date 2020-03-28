@@ -6,6 +6,7 @@ const categorySchema = new Schema({
     {
       text: String,
       category: String,
+      link: String,
     },
   ],
 });

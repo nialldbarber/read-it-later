@@ -2,12 +2,14 @@ import React, { useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import SVG from 'react-inlinesvg';
 import { CategoryContext } from '~/state/context/category';
+import { LinkContext } from '~/state/context/link';
 import Button from '~/components/button';
 import { Container, Header } from '~/styles/components/nav';
 import logo from '~/assets/logo.svg';
 
 const Nav = () => {
   const { toggleCategoryModal } = useContext(CategoryContext);
+  const { toggleLinkModal } = useContext(LinkContext);
   const { pathname } = useLocation();
 
   return (
@@ -25,7 +27,7 @@ const Nav = () => {
           ''
         ) : (
           <li>
-            <Button text="Add Link" />
+            <Button text="Add Link" click={toggleLinkModal} />
           </li>
         )}
       </ul>

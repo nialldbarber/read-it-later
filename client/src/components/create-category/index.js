@@ -1,21 +1,22 @@
 import React, { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useMutation } from '@apollo/react-hooks';
-import SVG from 'react-inlinesvg';
 import { CategoryContext } from '~/state/context/category';
 import useForm from '~/hooks/useForm';
 import Loading from '~/components/loading';
-import { Modal, Exit } from '~/styles/components/modals';
-import exit from '~/assets/exit.svg';
+import { Modal } from '~/styles/components/modals';
+import Form from '~/components/form';
 import { CREATE_CATEGORY } from '~/components/create-category/schema';
 import { GET_ALL_CATEGORIES } from '~/views/homepage/schema';
 
 const CreateCategory = () => {
+  const { push } = useHistory();
   const { visible, closeCategoryModal } = useContext(CategoryContext);
-  const { values, handleChange, handleSubmit } = useForm(addCategory, {
-    category: '',
-  });
-
-  const { category } = values;
+  const {
+    values: { category },
+    handleChange,
+    handleSubmit,
+  } = useForm(addCategory, '');
 
   const [createCategory, { loading, error }] = useMutation(CREATE_CATEGORY, {
     onError(err) {
@@ -35,20 +36,20 @@ const CreateCategory = () => {
   function addCategory() {
     createCategory();
     closeCategoryModal();
+    push('/');
   }
 
   return (
     <Modal style={{ display: visible ? 'block' : 'none' }}>
-      <div className="inner">
-        <Exit>
-          <SVG src={exit} alt="Exit" aria-label="Exit" onClick={closeCategoryModal} />
-        </Exit>
-        <h1>Create a category</h1>
-        <form onSubmit={handleSubmit} noValidate>
-          <input type="text" name="category" value={category} onChange={handleChange} />
-          <button>Add</button>
-        </form>
-      </div>
+      <Form
+        closeModal={closeCategoryModal}
+        title="Create a category"
+        submit={handleSubmit}
+        name="category"
+        value={category}
+        change={handleChange}
+        buttonText="Add"
+      />
     </Modal>
   );
 };

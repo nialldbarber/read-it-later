@@ -31,9 +31,9 @@ const CategoryPage = () => {
           <p>No links! Care to add some?</p>
         ) : (
           <CardLink variants={stagger}>
-            {links.map((el) => (
-              <motion.div variants={fadeInUp}>
-                <li>{el.text}</li>
+            {links.map(({ _id, text }) => (
+              <motion.div key={_id} variants={fadeInUp}>
+                <li>{text}</li>
               </motion.div>
             ))}
           </CardLink>
