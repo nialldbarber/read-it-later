@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import { motion } from 'framer-motion';
 import { Wrapper } from '~/styles/layouts/wrapper';
-import { CardContainer } from '~/styles/components/card';
+import { CardLink } from '~/styles/components/card';
 import { Header } from '~/styles/components/typography';
 import Loading from '~/components/loading';
 import { stagger, fadeInUp, pageVariants } from '~/utils/animation';
@@ -30,13 +30,13 @@ const CategoryPage = () => {
         {links.length <= 0 ? (
           <p>No links! Care to add some?</p>
         ) : (
-          <CardContainer variants={stagger}>
+          <CardLink variants={stagger}>
             {links.map((el) => (
-              <motion.div variants={fadeInUp} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <motion.div variants={fadeInUp}>
                 <li>{el.text}</li>
               </motion.div>
             ))}
-          </CardContainer>
+          </CardLink>
         )}
       </Wrapper>
     </motion.div>

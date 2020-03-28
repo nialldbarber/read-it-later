@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
+export const CardLink = styled(motion.ul)`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 30px;
+`;
+
 export const CardContainer = styled(motion.ul)`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
