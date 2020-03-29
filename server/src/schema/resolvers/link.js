@@ -22,8 +22,10 @@ const link = {
 
       if (currentCategory.length > 0) {
         cat.links.unshift(newLink);
+
         await cat.save();
-        return cat;
+        await newLink.save();
+        return newLink;
       } else {
         throw new UserInputError('Category not found');
       }

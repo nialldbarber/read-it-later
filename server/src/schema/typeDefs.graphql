@@ -5,7 +5,7 @@ type Query {
 }
 
 type Mutation {
-  createLink(text: String, link: String!, category: String!): Link!
+  createLink(text: String, link: String, category: String!): Link!
   createCategory(category: String!): Category!
   archiveLink(category: String!, _id: ID!): Link
 }
@@ -13,7 +13,7 @@ type Mutation {
 type Link {
   _id: ID!
   text: String
-  link: String!
+  link: String
   category: Category
 }
 
@@ -22,5 +22,5 @@ type Category {
   category: String
   text: String
   link: String
-  links: [Link!]!
+  links: [Link]
 }

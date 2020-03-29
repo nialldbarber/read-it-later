@@ -8,6 +8,7 @@ export const GET_LINKS_BY_CATEGORY = gql`
       links {
         _id
         text
+        link
       }
     }
   }

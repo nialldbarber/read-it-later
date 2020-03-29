@@ -5,6 +5,7 @@ export const CREATE_CATEGORY = gql`
     createCategory(category: $category) {
       _id
       category
+      link
     }
   }
 `;

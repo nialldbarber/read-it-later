@@ -14,7 +14,6 @@ const category = {
     getLinksByCategory: async (_, { _id }) => {
       try {
         const categories = await Category.findById(_id);
-        console.log(categories);
         return categories;
       } catch (err) {
         throw new Error(err);
