@@ -22,6 +22,9 @@ const CreateCategory = () => {
     onError(err) {
       console.log(err);
     },
+    update() {
+      push('/');
+    },
     variables: { category },
     refetchQueries: [{ query: GET_ALL_CATEGORIES }],
   });
@@ -36,7 +39,6 @@ const CreateCategory = () => {
   function addCategory() {
     createCategory();
     closeCategoryModal();
-    push('/');
   }
 
   return (

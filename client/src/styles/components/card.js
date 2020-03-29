@@ -13,6 +13,16 @@ export const CardContainer = styled(motion.ul)`
   grid-gap: 30px;
 `;
 
+export const CardRow = styled(motion.li)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: ${(props) => props.theme.colours.darkerBlue};
+  color: ${(props) => props.theme.colours.white};
+  border-radius: 5px;
+`;
+
 export const Container = styled.li`
   background-color: ${(props) => props.theme.colours.darkerBlue};
   border-radius: 5px;

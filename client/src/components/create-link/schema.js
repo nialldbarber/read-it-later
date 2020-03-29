@@ -5,6 +5,7 @@ export const CREATE_LINK = gql`
     createLink(link: $link, category: $category) {
       _id
       text
+      link
     }
   }
 `;

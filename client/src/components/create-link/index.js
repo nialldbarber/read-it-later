@@ -6,6 +6,7 @@ import useForm from '~/hooks/useForm';
 import Loading from '~/components/loading';
 import { Modal } from '~/styles/components/modals';
 import Form from '~/components/form';
+import { getCategoryName, getCategoryId } from '~/utils/routing';
 import { CREATE_LINK } from '~/components/create-link/schema';
 import { GET_LINKS_BY_CATEGORY } from '~/views/category/schema';
 
@@ -14,15 +15,12 @@ const CreateLink = () => {
   const { visible, closeLinkModal } = useContext(LinkContext);
   const { values, handleChange, handleSubmit } = useForm(addLink, { link: '' });
 
-  const categoryName = pathname.replace(/^\/([^\/]*).*$/, '$1');
-  const categoryId = pathname.split('/').pop(-1);
-
   const [createLink, { loading, error }] = useMutation(CREATE_LINK, {
     onError(err) {
       console.log(err.graphQLErrors[0].extensions.exception);
     },
-    variables: { link: values.link, category: categoryName },
-    refetchQueries: [{ query: GET_LINKS_BY_CATEGORY, variables: { _id: categoryId } }],
+    variables: { link: values.link, category: getCategoryName(pathname) },
+    refetchQueries: [{ query: GET_LINKS_BY_CATEGORY, variables: { _id: getCategoryId(pathname) } }],
   });
 
   if (error) {
