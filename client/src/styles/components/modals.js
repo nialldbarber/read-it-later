@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 
 export const Modal = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 5;
+  .outer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 5;
+  }
 
   .inner {
     position: fixed;
@@ -20,6 +22,7 @@ export const Modal = styled.div`
     display: grid;
     grid-template-rows: 30px 100px 1fr;
     border-radius: 4px;
+    z-index: 6;
 
     h1 {
       margin: 1rem 0 0;
@@ -39,10 +42,24 @@ export const Modal = styled.div`
       }
 
       button {
+        position: relative;
         width: 70px;
         background: ${(props) => props.theme.colours.yellow};
         color: ${(props) => props.theme.colours.darkBlue};
         font-size: 1rem;
+
+        &.disabled {
+          &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+            cursor: not-allowed;
+          }
+        }
       }
     }
   }

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   button {
+    position: relative;
     font-size: 1rem;
     padding: 0.7rem 1rem;
     background-color: ${(props) => props.theme.colours.darkerBlue};
