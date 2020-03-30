@@ -37,15 +37,17 @@ const CreateLink = () => {
 
   return (
     <Modal style={{ display: visible ? 'block' : 'none' }}>
-      <Form
-        closeModal={closeLinkModal}
-        title="Add a link"
-        submit={handleSubmit}
-        name="link"
-        value={values.link}
-        change={handleChange}
-        buttonText="Add"
-      />
+      {visible && (
+        <Form
+          closeModal={closeLinkModal}
+          title="Add a link"
+          submit={handleSubmit}
+          name="link"
+          value={values.link}
+          change={handleChange}
+          buttonText="Add"
+        />
+      )}
     </Modal>
   );
 };

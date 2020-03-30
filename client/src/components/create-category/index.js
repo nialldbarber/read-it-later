@@ -43,15 +43,17 @@ const CreateCategory = () => {
 
   return (
     <Modal style={{ display: visible ? 'block' : 'none' }}>
-      <Form
-        closeModal={closeCategoryModal}
-        title="Create a category"
-        submit={handleSubmit}
-        name="category"
-        value={category}
-        change={handleChange}
-        buttonText="Add"
-      />
+      {visible && (
+        <Form
+          closeModal={closeCategoryModal}
+          title="Create a category"
+          submit={handleSubmit}
+          name="category"
+          value={category}
+          change={handleChange}
+          buttonText="Add"
+        />
+      )}
     </Modal>
   );
 };
