@@ -7,6 +7,7 @@ import Card from '~/components/card';
 import { Wrapper } from '~/styles/layouts/wrapper';
 import { Header } from '~/styles/components/typography';
 import { pageVariants } from '~/utils/animation';
+import { replaceDashWithSpace } from '~/utils/routing';
 import { GET_LINKS_BY_CATEGORY } from '~/views/category/schema';
 
 const CategoryPage = () => {
@@ -23,12 +24,10 @@ const CategoryPage = () => {
 
   const { category, links } = data.getLinksByCategory;
 
-  console.log(data);
-
   return (
     <motion.div initial="initial" animate="animate" exit="exit" exit={{ opacity: 0 }} variants={pageVariants}>
       <Wrapper>
-        <Header>{category}</Header>
+        <Header>{replaceDashWithSpace(category)}</Header>
         {links.length <= 0 ? <p>No links! Care to add some?</p> : <Card link={links} />}
       </Wrapper>
     </motion.div>

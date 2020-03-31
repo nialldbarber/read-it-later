@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container } from '~/styles/components/card';
-import { formatUrl } from '~/utils/routing';
+import { formatUrl, replaceDashWithSpace } from '~/utils/routing';
 
 const CardLink = ({ id, category }) => (
   <Container>
-    <Link to={`/${formatUrl(category)}/${id}`}>{category}</Link>
+    <Link to={`/${formatUrl(category)}/${id}`}>{replaceDashWithSpace(category)}</Link>
   </Container>
 );
 

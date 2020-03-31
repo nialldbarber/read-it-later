@@ -38,7 +38,6 @@ const category = {
       });
 
       await newCategory.save();
-
       return newCategory;
     },
   },

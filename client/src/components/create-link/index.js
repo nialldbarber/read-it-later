@@ -36,7 +36,7 @@ const CreateLink = () => {
   }
 
   return (
-    <Modal style={{ display: visible ? 'block' : 'none' }}>
+    <Modal>
       {visible && (
         <Form
           closeModal={closeLinkModal}

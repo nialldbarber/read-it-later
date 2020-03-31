@@ -4,7 +4,7 @@ module.exports = {
     es6: true,
     jest: true,
   },
-  extends: [ 'airbnb/base', 'eslint:recommended', 'plugin:react/recommended' ],
+  extends: ['airbnb/base', 'eslint:recommended', 'plugin:react/recommended'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -19,13 +19,14 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: [ 'react' ],
+  plugins: ['react'],
   rules: {
+    strict: 0,
     'react/prop-types': 0,
-    indent: [ 2, 'tab' ],
+    indent: [2, 'tab'],
     'no-tabs': 0,
     'function-paren-newline': 1,
-    semi: [ 'error', 'never' ],
+    semi: ['error', 'never'],
     'no-trailing-spaces': 0,
     'no-console': 'off',
     indent: 0,
@@ -54,8 +55,7 @@ module.exports = {
     'no-return-assign': 0,
     'space-before-function-paren': 0,
     'no-await-in-loop': 0,
-    'no-restricted-syntax': [ 2, 'DebuggerStatement', 'LabeledStatement', 'WithStatement' ],
-
+    'no-restricted-syntax': [2, 'DebuggerStatement', 'LabeledStatement', 'WithStatement'],
     'import/no-unresolved': 0,
     'import/no-extraneous-dependencies': 0,
     'import/imports-first': 1,
@@ -64,4 +64,4 @@ module.exports = {
     curly: 2,
     'object-curly-newline': 0,
   },
-}
+};

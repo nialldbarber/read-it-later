@@ -9,6 +9,11 @@ export const formatUrl = (url) => {
   return url;
 };
 
+export const replaceDashWithSpace = (text) => {
+  text = text.replace(/-/, ' ').toLowerCase();
+  return text;
+};
+
 export const getCategoryName = (path) => path.replace(/^\/([^\/]*).*$/, '$1');
 
 export const getCategoryId = (id) => id.split('/').pop(-1);

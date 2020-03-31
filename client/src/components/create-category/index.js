@@ -42,7 +42,7 @@ const CreateCategory = () => {
   }
 
   return (
-    <Modal style={{ display: visible ? 'block' : 'none' }}>
+    <Modal>
       {visible && (
         <Form
           closeModal={closeCategoryModal}
