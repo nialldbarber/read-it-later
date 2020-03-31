@@ -21,7 +21,13 @@ const Homepage = () => {
         <Header>Your Links</Header>
         <CardContainer variants={stagger}>
           {data?.getAllCategories.map(({ _id, category }) => (
-            <motion.div key={_id} variants={fadeInUp} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <motion.div
+              dragConstraints={{ left: 0, right: 0 }}
+              key={_id}
+              variants={fadeInUp}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
               <CardLink id={_id} category={category} />
             </motion.div>
           ))}

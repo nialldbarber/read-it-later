@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { media } from '~/styles/utils/media-queries';
 
 export const CardLink = styled(motion.ul)`
   display: grid;
@@ -9,8 +10,20 @@ export const CardLink = styled(motion.ul)`
 
 export const CardContainer = styled(motion.ul)`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   grid-gap: 30px;
+
+  ${media.greaterThan('phablet')`
+    grid-template-columns: repeat(2, 1fr);
+  `};
+
+  ${media.greaterThan('tablet')`
+    grid-template-columns: repeat(3, 1fr);
+  `};
+
+  ${media.greaterThan('large')`
+    grid-template-columns: repeat(4, 1fr);
+  `};
 `;
 
 export const CardRow = styled(motion.li)`
