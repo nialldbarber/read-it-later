@@ -10,7 +10,6 @@ async function getTitleFromUrl(url) {
   const page = await browser.newPage();
   await page.goto(url);
   const pageTitle = await page.title();
-  console.log(pageTitle);
   return pageTitle;
 }
 
