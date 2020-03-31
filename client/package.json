@@ -37,6 +37,7 @@
     "react-inlinesvg": "^1.2.0",
     "react-router-dom": "^5.1.2",
     "styled-components": "^5.0.0",
+    "styled-media-query": "^2.1.2",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.10.1"
@@ -45,7 +46,6 @@
     "@babel/cli": "^7.8.3",
     "@babel/core": "^7.8.3",
     "@babel/node": "^7.8.3",
-    "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/plugin-proposal-nullish-coalescing-operator": "^7.8.3",
     "@babel/plugin-proposal-optional-chaining": "^7.9.0",
     "@babel/polyfill": "^7.8.3",
