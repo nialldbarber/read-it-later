@@ -36,5 +36,6 @@ export const Container = styled.li`
     width: 100%;
     min-height: 170px;
     font-size: 1.5rem;
+    text-transform: capitalize;
   }
 `;

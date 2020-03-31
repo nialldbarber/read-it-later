@@ -13,40 +13,59 @@ export const Modal = styled.div`
 
   .inner {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    background: black;
-    transform: translate(-50%, -50%);
-    padding: 1rem 2rem 3rem;
-    min-width: 420px;
+    top: 32%;
+    left: 32%;
     display: grid;
-    grid-template-rows: 30px 100px 1fr;
+    grid-template-rows: 30px 60px 1fr;
+    background: ${(props) => props.theme.colours.darkBlue};
+    box-shadow: rgba(60, 66, 87, 0.12) 0px 7px 14px 0px, rgba(0, 0, 0, 0.12) 0px 3px 6px 0px;
+    padding: 1rem;
+    min-width: 470px;
     border-radius: 4px;
     z-index: 6;
 
     h1 {
+      font-size: 1.5rem;
+      font-weight: 300;
       margin: 1rem 0 0;
+      padding: 0 2rem;
     }
 
     form {
-      width: 100%;
       display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: 1rem 2rem 2rem;
+
+      label {
+        font-size: 1.125rem;
+        text-transform: capitalize;
+      }
 
       input {
         background: ${(props) => props.theme.colours.darkBlue};
-        border-bottom: 1px solid ${(props) => props.theme.colours.yellow};
+        border: 1px solid ${(props) => props.theme.colours.yellow};
+        border-radius: 4px;
         width: 100%;
         font-size: 1rem;
+        margin-top: 1rem;
         padding: 1rem;
         color: ${(props) => props.theme.colours.yellow};
+        transition: 0.2s ease;
+
+        &:focus {
+          background: ${(props) => props.theme.colours.darkerBlue};
+        }
       }
 
       button {
         position: relative;
-        width: 70px;
         background: ${(props) => props.theme.colours.yellow};
         color: ${(props) => props.theme.colours.darkBlue};
-        font-size: 1rem;
+        font-size: 1.125rem;
+        margin-top: 1.5rem;
+        padding: 1rem;
+        border-radius: 4px;
 
         &.disabled {
           &:before {
@@ -69,9 +88,10 @@ export const Exit = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  padding-right: 0.5rem;
 
   svg {
-    width: 20px;
+    width: 18px;
     cursor: pointer;
   }
 `;

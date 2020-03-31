@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as HashRouter, Switch, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Homepage from '~/views/homepage';
 import CategoryPage from '~/views/category';
@@ -9,7 +9,7 @@ import CreateLink from '~/components/create-link';
 import { onPageExit } from '~/utils/animation';
 
 const Routing = () => (
-  <Router>
+  <HashRouter>
     <Nav />
     <AnimatePresence exitBeforeEnter onExitComplete={onPageExit}>
       <Switch>
@@ -19,7 +19,7 @@ const Routing = () => (
     </AnimatePresence>
     <CreateCategory />
     <CreateLink />
-  </Router>
+  </HashRouter>
 );
 
 export default Routing;

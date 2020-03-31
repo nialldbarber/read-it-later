@@ -8,9 +8,9 @@ import { Container, Header } from '~/styles/components/nav';
 import logo from '~/assets/logo.svg';
 
 const Nav = () => {
+  const { pathname } = useLocation();
   const { toggleCategoryModal } = useContext(CategoryContext);
   const { toggleLinkModal } = useContext(LinkContext);
-  const { pathname } = useLocation();
 
   return (
     <Header>
