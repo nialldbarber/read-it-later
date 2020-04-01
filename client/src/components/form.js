@@ -69,7 +69,7 @@ const Form = ({ title, submit, name, value, change, buttonText, closeModal, rese
               <input type="text" name={name} value={value || ''} onChange={change} />
             </label>
             <div className="button-wrapper" onClick={handleHint}>
-              <Hint message={`Add a ${name}`} styleType="button-hint" visibility={visible} />
+              <Hint message={`Add a ${name}`} type={name} styleType="button-hint" visibility={visible} />
               <button disabled={value?.length ? false : true} className={value?.length ? '' : 'disabled'}>
                 {buttonText}
               </button>
