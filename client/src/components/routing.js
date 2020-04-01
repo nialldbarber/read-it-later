@@ -3,6 +3,7 @@ import { BrowserRouter as HashRouter, Switch, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Homepage from '~/views/homepage';
 import CategoryPage from '~/views/category';
+import NotFound from '~/views/not-found';
 import Nav from '~/components/nav';
 import CreateCategory from '~/components/create-category';
 import CreateLink from '~/components/create-link';
@@ -15,6 +16,7 @@ const Routing = () => (
       <Switch>
         <Route exact path="/" component={Homepage} />
         <Route path="/:category/:id" component={CategoryPage} />
+        <Route component={NotFound} />
       </Switch>
     </AnimatePresence>
     <CreateCategory />

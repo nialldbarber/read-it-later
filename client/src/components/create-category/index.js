@@ -16,6 +16,7 @@ const CreateCategory = () => {
     values: { category },
     handleChange,
     handleSubmit,
+    resetValues,
   } = useForm(addCategory, '');
 
   const [createCategory, { loading, error }] = useMutation(CREATE_CATEGORY, {
@@ -51,6 +52,7 @@ const CreateCategory = () => {
           name="category"
           value={category}
           change={handleChange}
+          reset={resetValues}
           buttonText="Add"
         />
       )}

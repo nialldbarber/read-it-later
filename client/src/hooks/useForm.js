@@ -14,10 +14,13 @@ const useForm = (callback, initialState = {}) => {
     setValues(initialState);
   };
 
+  const resetValues = () => setValues(initialState);
+
   return {
     values,
     handleChange,
     handleSubmit,
+    resetValues,
   };
 };
 
