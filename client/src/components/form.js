@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import SVG from 'react-inlinesvg';
 import useLockBodyScroll from '~/hooks/useLockBodyScroll';
+import Hint from '~/components/hint';
 import { Exit, ModalWrapper } from '~/styles/components/modals';
 import exit from '~/assets/exit.svg';
 
@@ -23,8 +24,20 @@ const spring = {
   stiffness: 300,
 };
 
-const Form = ({ title, submit, name, value, change, buttonText, closeModal }) => {
+const Form = ({ title, submit, name, value, change, buttonText, closeModal, reset }) => {
+  const [visible, setVisible] = useState(false);
+
   useLockBodyScroll();
+
+  const handleHint = () => {
+    if (value?.length) setVisible(false);
+    else {
+      setVisible(true);
+      setTimeout(() => {
+        setVisible(false);
+      }, 2000);
+    }
+  };
 
   return (
     <>
@@ -39,7 +52,15 @@ const Form = ({ title, submit, name, value, change, buttonText, closeModal }) =>
           layoutTransition={spring}
         >
           <Exit>
-            <SVG src={exit} alt="Exit" aria-label="Exit" onClick={closeModal} />
+            <SVG
+              src={exit}
+              alt="Exit"
+              aria-label="Exit"
+              onClick={() => {
+                closeModal();
+                reset();
+              }}
+            />
           </Exit>
           <h1>{title}</h1>
           <form onSubmit={submit} noValidate>
@@ -47,9 +68,12 @@ const Form = ({ title, submit, name, value, change, buttonText, closeModal }) =>
               {name}
               <input type="text" name={name} value={value || ''} onChange={change} />
             </label>
-            <button disabled={value?.length ? false : true} className={value?.length ? '' : 'disabled'}>
-              {buttonText}
-            </button>
+            <div className="button-wrapper" onClick={handleHint}>
+              <Hint message={`Add a ${name}`} styleType="button-hint" visibility={visible} />
+              <button disabled={value?.length ? false : true} className={value?.length ? '' : 'disabled'}>
+                {buttonText}
+              </button>
+            </div>
           </form>
         </motion.div>
       </ModalWrapper>

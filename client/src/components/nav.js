@@ -1,11 +1,10 @@
 import React, { useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import SVG from 'react-inlinesvg';
 import { CategoryContext } from '~/state/context/category';
 import { LinkContext } from '~/state/context/link';
 import Button from '~/components/button';
+import Logo from '~/components/logo';
 import { Container, Header } from '~/styles/components/nav';
-import logo from '~/assets/logo.svg';
 
 const Nav = () => {
   const { pathname } = useLocation();
@@ -16,7 +15,7 @@ const Nav = () => {
     <Header>
       <Link to="/">
         <Container>
-          <SVG src={logo} alt="Logo" aria-label="Logo" />
+          <Logo />
         </Container>
       </Link>
       <ul>

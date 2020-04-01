@@ -13,7 +13,7 @@ import { GET_LINKS_BY_CATEGORY } from '~/views/category/schema';
 const CreateLink = () => {
   const { pathname } = useLocation();
   const { visible, closeLinkModal } = useContext(LinkContext);
-  const { values, handleChange, handleSubmit } = useForm(addLink, { link: '' });
+  const { values, handleChange, handleSubmit, resetValues } = useForm(addLink, { link: '' });
 
   const [createLink, { loading, error }] = useMutation(CREATE_LINK, {
     onError(err) {
@@ -45,6 +45,7 @@ const CreateLink = () => {
           name="link"
           value={values.link}
           change={handleChange}
+          reset={resetValues}
           buttonText="Add"
         />
       )}

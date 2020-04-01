@@ -58,25 +58,64 @@ export const Modal = styled.div`
         }
       }
 
-      button {
+      .button-wrapper {
         position: relative;
-        background: ${(props) => props.theme.colours.yellow};
-        color: ${(props) => props.theme.colours.darkBlue};
-        font-size: 1.125rem;
-        margin-top: 1.5rem;
-        padding: 1rem;
-        border-radius: 4px;
+        z-index: 6;
 
-        &.disabled {
-          &:before {
+        /* display: flex;
+        align-items: center;
+        justify-content: center; */
+
+        .button-hint {
+          position: absolute;
+          bottom: 4rem;
+          transform: translateX(-50%);
+          background-color: ${(props) => props.theme.colours.darkerBlue};
+          border-radius: 5px;
+
+          &:after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            background-color: rgba(0, 0, 0, 0.4);
-            cursor: not-allowed;
+            width: 0;
+            height: 0;
+            border-width: 5px;
+            border-style: solid;
+            border-color: ${(props) => props.theme.colours.darkerBlue} transparent transparent transparent;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+
+          p {
+            margin: 0;
+            padding: 0.8rem;
+            color: ${(props) => props.theme.colours.yellow};
+          }
+        }
+
+        button {
+          position: relative;
+          background: ${(props) => props.theme.colours.yellow};
+          color: ${(props) => props.theme.colours.darkBlue};
+          font-size: 1.125rem;
+          margin-top: 1.5rem;
+          padding: 1rem;
+          border-radius: 4px;
+          width: 100%;
+
+          &.disabled {
+            z-index: -1;
+
+            &:before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              bottom: 0;
+              right: 0;
+              background-color: rgba(0, 0, 0, 0.4);
+              cursor: not-allowed;
+            }
           }
         }
       }
