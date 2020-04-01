@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import SVG from 'react-inlinesvg';
 import useLockBodyScroll from '~/hooks/useLockBodyScroll';
 import Hint from '~/components/hint';
-import { Exit, ModalWrapper } from '~/styles/components/modals';
+import { Exit, ModalWrapper, Input } from '~/styles/components/modals';
 import exit from '~/assets/exit.svg';
 
 const variants = {
@@ -66,7 +66,7 @@ const Form = ({ title, submit, name, value, change, buttonText, closeModal, rese
           <form onSubmit={submit} noValidate>
             <label>
               {name}
-              <input type="text" name={name} value={value || ''} onChange={change} />
+              <Input type="text" name={name} value={value || ''} onChange={change} />
             </label>
             <div className="button-wrapper" onClick={handleHint}>
               <Hint message={`Add a ${name}`} type={name} styleType="button-hint" visibility={visible} />
