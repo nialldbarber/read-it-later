@@ -7,5 +7,6 @@ export const theme = {
     darkerBlue: '#1A1D24',
     white: '#F9FFEE',
     yellow: '#e6af21',
+    darkYellow: '#9c7819',
   },
 };

@@ -102,6 +102,11 @@ export const Modal = styled.div`
           padding: 1rem;
           border-radius: 4px;
           width: 100%;
+          transition: 0.2s ease;
+
+          &:hover {
+            background: ${(props) => props.theme.colours.darkYellow};
+          }
 
           &.disabled {
             z-index: -1;
