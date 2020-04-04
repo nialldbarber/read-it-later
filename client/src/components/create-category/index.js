@@ -4,6 +4,7 @@ import { useMutation } from '@apollo/react-hooks';
 import { CategoryContext } from '~/state/context/category';
 import useForm from '~/hooks/useForm';
 import Loading from '~/components/loading';
+import Error from '~/components/error';
 import { Modal } from '~/styles/components/modals';
 import Form from '~/components/form';
 import { CREATE_CATEGORY } from '~/components/create-category/schema';
@@ -30,11 +31,7 @@ const CreateCategory = () => {
     refetchQueries: [{ query: GET_ALL_CATEGORIES }],
   });
 
-  if (error) {
-    console.log(error);
-    return <p>ERROR</p>;
-  }
-
+  if (error) return <Error error={error} type="category" />;
   if (loading) return <Loading />;
 
   function addCategory() {

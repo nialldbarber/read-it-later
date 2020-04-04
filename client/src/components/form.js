@@ -5,6 +5,7 @@ import useLockBodyScroll from '~/hooks/useLockBodyScroll';
 import Hint from '~/components/hint';
 import { Exit, ModalWrapper, Input } from '~/styles/components/modals';
 import exit from '~/assets/exit.svg';
+import { useEffect } from 'react';
 
 const variants = {
   visible: {
@@ -14,7 +15,7 @@ const variants = {
     scale: 0,
   },
   exit: {
-    scale: 0,
+    scale: 10,
   },
 };
 
