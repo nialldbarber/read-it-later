@@ -32,6 +32,7 @@ export const CardRow = styled(motion.li)`
   align-items: center;
   padding: 1rem 1.5rem;
   background-color: ${(props) => props.theme.colours.darkerBlue};
+  border-left: 5px solid ${(props) => props.theme.colours.yellow};
   color: ${(props) => props.theme.colours.white};
   border-radius: 5px;
 `;
