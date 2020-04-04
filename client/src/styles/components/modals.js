@@ -42,22 +42,6 @@ export const Modal = styled.div`
         text-transform: capitalize;
       }
 
-      input {
-        background: ${(props) => props.theme.colours.darkBlue};
-        border: 1px solid ${(props) => props.theme.colours.yellow};
-        border-radius: 4px;
-        width: 100%;
-        font-size: 1rem;
-        margin-top: 1rem;
-        padding: 1rem;
-        color: ${(props) => props.theme.colours.yellow};
-        transition: 0.2s ease;
-
-        &:focus {
-          background: ${(props) => props.theme.colours.darkerBlue};
-        }
-      }
-
       .button-wrapper {
         position: relative;
         z-index: 6;
@@ -125,6 +109,26 @@ export const Modal = styled.div`
         }
       }
     }
+  }
+`;
+
+export const Input = styled.input`
+  background: ${(props) => props.theme.colours.darkBlue};
+  border: 1px solid ${(props) => props.theme.colours.yellow};
+  border-radius: 4px;
+  width: 100%;
+  font-size: 1rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  color: ${(props) => props.theme.colours.yellow};
+  transition: 0.2s ease;
+
+  &:focus {
+    background: ${(props) => props.theme.colours.darkerBlue};
+  }
+
+  &.home-input {
+    margin-bottom: 1rem;
   }
 `;
 

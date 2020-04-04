@@ -12,13 +12,17 @@ import { onPageExit } from '~/utils/animation';
 const Routing = () => (
   <HashRouter>
     <Nav />
-    <AnimatePresence exitBeforeEnter onExitComplete={onPageExit}>
-      <Switch>
-        <Route exact path="/" component={Homepage} />
-        <Route path="/:category/:id" component={CategoryPage} />
-        <Route component={NotFound} />
-      </Switch>
-    </AnimatePresence>
+    <Route
+      render={({ location }) => (
+        <AnimatePresence exitBeforeEnter initial={false}>
+          <Switch location={location} key={location.pathname}>
+            <Route exact path="/" component={Homepage} />
+            <Route path="/:category/:id" component={CategoryPage} />
+            <Route component={NotFound} />
+          </Switch>
+        </AnimatePresence>
+      )}
+    />
     <CreateCategory />
     <CreateLink />
   </HashRouter>
