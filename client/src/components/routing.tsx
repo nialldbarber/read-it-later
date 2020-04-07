@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { BrowserRouter as HashRouter, Switch, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Homepage from '~/views/homepage';
@@ -7,13 +7,12 @@ import NotFound from '~/views/not-found';
 import Nav from '~/components/nav';
 import CreateCategory from '~/components/create-category';
 import CreateLink from '~/components/create-link';
-import { onPageExit } from '~/utils/animation';
 
-const Routing = () => (
+const Routing: FC = () => (
   <HashRouter>
     <Nav />
     <Route
-      render={({ location }) => (
+      render={({ location }: any) => (
         <AnimatePresence exitBeforeEnter initial={false}>
           <Switch location={location} key={location.pathname}>
             <Route exact path="/" component={Homepage} />

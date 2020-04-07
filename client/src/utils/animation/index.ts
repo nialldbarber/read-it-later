@@ -1,13 +1,16 @@
-import { clamp, distance } from '@popmotion/popcorn';
+import { FadeInUp } from '~/utils/animation/types';
 
-const easing = [0.6, -0.05, 0.01, 0.99];
+const easing: Array<number> = [0.6, -0.05, 0.01, 0.99];
 
 // Animations
-export const fadeInUp = {
+export const fadeInUp: FadeInUp = {
   initial: {
     y: 60,
     opacity: 0,
-    transition: { duration: 0.45, ease: easing },
+    transition: {
+      duration: 0.45,
+      ease: easing,
+    },
   },
   animate: {
     y: 0,
@@ -42,6 +45,8 @@ export const pageVariants = {
 // Functions
 export const onPageExit = () => {
   if (typeof window !== 'undefined') {
-    window.scrollTo({ top: 0 });
+    window.scrollTo({
+      top: 0,
+    });
   }
 };

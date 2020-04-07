@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { FC, useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { CategoryContext } from '~/state/context/category';
 import { LinkContext } from '~/state/context/link';
@@ -6,7 +6,7 @@ import Button from '~/components/button';
 import Logo from '~/components/logo';
 import { Container, Header } from '~/styles/components/nav';
 
-const Nav = () => {
+const Nav: FC = () => {
   const { pathname } = useLocation();
   const { toggleCategoryModal } = useContext(CategoryContext);
   const { toggleLinkModal } = useContext(LinkContext);
