@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useHistory } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Button from '~/components/button';
 import { fadeInUp, pageVariants } from '~/utils/animation';
 import { Wrapper } from '~/styles/layouts/wrapper';
 
-const NotFound = () => {
+const NotFound: FC = () => {
   const { push } = useHistory();
 
   return (

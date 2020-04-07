@@ -1,12 +1,12 @@
-const path = require('path')
-const webpack = require('webpack')
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
-  entry: [ '@babel/polyfill', './src/index' ],
+  entry: ['@babel/polyfill', './src/index'],
   mode: 'development',
   devtool: 'source-map',
   resolve: {
-    extensions: [ '.js' ],
+    extensions: ['.ts', '.tsx', '.js'],
   },
   module: {
     rules: [
@@ -14,15 +14,22 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader',
-        options: { presets: [ '@babel/env' ] },
+        options: { presets: ['@babel/env'] },
+      },
+      {
+        test: /\.(ts|js)x?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
       },
       {
         test: /\.css$/,
-        use: [ 'style-loader', 'css-loader' ],
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.scss$/,
-        use: [ 'style-loader', 'css-loader', 'sass-loader' ],
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.svg$/,
@@ -51,5 +58,5 @@ module.exports = {
     publicPath: 'http://localhost:5000/dist/',
     historyApiFallback: true,
   },
-  plugins: [ new webpack.HotModuleReplacementPlugin() ],
-}
+  plugins: [new webpack.HotModuleReplacementPlugin()],
+};

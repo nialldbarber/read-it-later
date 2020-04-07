@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { ApolloProvider } from 'react-apollo';
 import { ThemeProvider } from 'styled-components';
 import { CategoryProvider } from '~/state/context/category';
@@ -8,7 +8,7 @@ import { client } from '~/utils/apollo';
 import { GlobalStyle } from '~/styles/base/global';
 import { theme } from '~/styles/utils/variables';
 
-const App = () => (
+const App: FC = () => (
   <ApolloProvider client={client}>
     <ThemeProvider theme={theme}>
       <CategoryProvider>
