@@ -1,7 +1,7 @@
-import { AuthenticationError, UserInputError } from 'apollo-server-express';
-import { Link } from '~/models/Link';
-import { Category } from '~/models/Category';
-import getTitleFromUrl from '~/utils/scraper';
+const { AuthenticationError, UserInputError } = require('apollo-server-express');
+const { Link } = require('~/models/Link');
+const { Category } = require('~/models/Category');
+const getTitleFromUrl = require('~/utils/scraper');
 
 const link = {
   Mutation: {

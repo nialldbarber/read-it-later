@@ -3,12 +3,12 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const { ApolloServer } = require('apollo-server-express');
 const { importSchema } = require('graphql-import');
-const resolvers = require('~/schema/resolvers');
+const resolvers = require('./schema/resolvers');
 
 (async function() {
   require('~/db');
   const app = express();
-  const port = process.env.PORT || 7777;
+  const port = process.env.PORT || 5151;
 
   const server = new ApolloServer({
     typeDefs: importSchema('src/schema/typeDefs.graphql'),

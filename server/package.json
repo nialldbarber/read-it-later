@@ -2,9 +2,9 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "src/app.js",
+  "main": "src/server.js",
   "scripts": {
-    "start": "nodemon --exec babel-node src/server.ts",
+    "start": "node src/server.js",
     "scrape": "node src/utils/scraper.js"
   },
   "keywords": [],

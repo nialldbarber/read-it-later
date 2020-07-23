@@ -1,5 +1,5 @@
-import link from '~/schema/resolvers/link';
-import category from '~/schema/resolvers/category';
+const link = require('~/schema/resolvers/link');
+const category = require('~/schema/resolvers/category');
 
 const resolvers = {
   Query: {

@@ -1,5 +1,5 @@
-import { UserInputError } from 'apollo-server-express';
-import { Category } from '~/models/Category';
+const { UserInputError } = require('apollo-server-express');
+const { Category } = require('~/models/Category');
 
 const category = {
   Query: {
