@@ -9,8 +9,8 @@ import { GlobalStyle } from '~/styles/base/global';
 import { theme } from '~/styles/utils/variables';
 
 const App: FC = () => (
-  <ApolloProvider client={client}>
-    <ThemeProvider theme={theme}>
+  <ApolloProvider {...{client}}>
+    <ThemeProvider {...{theme}}>
       <CategoryProvider>
         <LinkProvider>
           <GlobalStyle />
