@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import { motion } from 'framer-motion';
@@ -10,7 +10,7 @@ import { pageVariants } from '~/utils/animation';
 import { replaceDashWithSpace } from '~/utils/routing';
 import { GET_LINKS_BY_CATEGORY } from '~/views/category/schema';
 
-const CategoryPage = () => {
+const CategoryPage: FC = () => {
   const { id } = useParams();
   const { loading, error, data } = useQuery(GET_LINKS_BY_CATEGORY, {
     variables: { _id: id },

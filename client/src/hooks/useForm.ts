@@ -1,14 +1,14 @@
-import { useState } from 'react';
+import { useState, FormEvent, SyntheticEvent } from 'react';
 
-const useForm = (callback, initialState = {}) => {
-  const [values, setValues] = useState(initialState);
+const useForm = (callback: () => void, initialState = {}) => {
+  const [values, setValues] = useState<any>(initialState);
 
-  const handleChange = (e) => {
+  const handleChange = (e: FormEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
     callback();
     setValues(initialState);
