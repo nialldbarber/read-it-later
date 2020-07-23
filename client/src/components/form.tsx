@@ -1,11 +1,21 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { motion } from 'framer-motion';
 import SVG from 'react-inlinesvg';
 import useLockBodyScroll from '~/hooks/useLockBodyScroll';
 import Hint from '~/components/hint';
 import { Exit, ModalWrapper, Input } from '~/styles/components/modals';
 import exit from '~/assets/exit.svg';
-import { useEffect } from 'react';
+
+interface FormProps {
+  title: string; 
+  submit: () => void;
+  name: string;
+  value: string; 
+  change: () => void; 
+  buttonText: string; 
+  closeModal: () => void;
+  reset: () => void; 
+}
 
 const variants = {
   visible: {
@@ -25,8 +35,17 @@ const spring = {
   stiffness: 300,
 };
 
-const Form = ({ title, submit, name, value, change, buttonText, closeModal, reset }) => {
-  const [visible, setVisible] = useState(false);
+const Form: FC<FormProps> = ({ 
+  title, 
+  submit, 
+  name, 
+  value, 
+  change, 
+  buttonText, 
+  closeModal, 
+  reset 
+}) => {
+  const [visible, setVisible] = useState<boolean>(false);
 
   useLockBodyScroll();
 

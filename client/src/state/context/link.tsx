@@ -2,17 +2,29 @@ import React, { createContext, useReducer } from 'react';
 import { linkReducer } from '~/state/reducers/link';
 import { TOGGLE_LINK_MODAL, CLOSE_LINK_MODAL } from '~/state/constants/link';
 
-const initialState = {
-  visible: false,
-};
+interface State {
+  visible: boolean;
+}
 
-export const LinkContext = createContext(initialState);
+const initialState: State = { visible: false };
 
-export const LinkProvider = (props) => {
+const LinkContext = createContext<any>(initialState);
+
+const LinkProvider = (props: any) => {
   const [state, dispatch] = useReducer(linkReducer, initialState);
 
   const toggleLinkModal = () => dispatch({ type: TOGGLE_LINK_MODAL });
   const closeLinkModal = () => dispatch({ type: CLOSE_LINK_MODAL });
 
-  return <LinkContext.Provider value={{ visible: state.visible, toggleLinkModal, closeLinkModal }} {...props} />;
+  return (
+    <LinkContext.Provider 
+      value={{ 
+        visible: state.visible, 
+        toggleLinkModal, 
+        closeLinkModal 
+      }} {...props} 
+    />
+  );
 };
+
+export { LinkContext, LinkProvider };

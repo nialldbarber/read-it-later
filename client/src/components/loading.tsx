@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Container, SpinnerContainer, StyledSpinner } from '~/styles/components/loading';
 
-const Loading = () => (
+const Loading: FC = () => (
   <Container>
     <SpinnerContainer>
       <StyledSpinner viewBox="0 0 50 50">

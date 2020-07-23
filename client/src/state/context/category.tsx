@@ -6,19 +6,25 @@ interface ICategory {
   visible: boolean;
 }
 
-const initialState = {
-  visible: false,
-};
+const initialState: ICategory = { visible: false };
 
-export const CategoryContext = createContext<ICategory>(initialState);
+const CategoryContext = createContext<any>(initialState);
 
-export const CategoryProvider = (props: any) => {
+const CategoryProvider = (props: any) => {
   const [state, dispatch] = useReducer(categoryReducer, initialState);
 
   const toggleCategoryModal = () => dispatch({ type: TOGGLE_CATEGORY_MODAL });
   const closeCategoryModal = () => dispatch({ type: CLOSE_CATEGORY_MODAL });
 
   return (
-    <CategoryContext.Provider value={{ visible: state.visible, toggleCategoryModal, closeCategoryModal }} {...props} />
+    <CategoryContext.Provider 
+      value={{ 
+        visible: state.visible, 
+        toggleCategoryModal, 
+        closeCategoryModal 
+      }} {...props} 
+    />
   );
 };
+
+export { CategoryContext, CategoryProvider };

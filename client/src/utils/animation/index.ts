@@ -1,6 +1,6 @@
 import { FadeInUp } from '~/utils/animation/types';
 
-const easing: Array<number> = [0.6, -0.05, 0.01, 0.99];
+const easing: number[] = [0.6, -0.05, 0.01, 0.99];
 
 // Animations
 export const fadeInUp: FadeInUp = {

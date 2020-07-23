@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, FC } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useMutation } from '@apollo/react-hooks';
 import { LinkContext } from '~/state/context/link';
@@ -12,7 +12,7 @@ import { getCategoryName, getCategoryId } from '~/utils/routing';
 import { CREATE_LINK } from '~/components/create-link/schema';
 import { GET_LINKS_BY_CATEGORY } from '~/views/category/schema';
 
-const CreateLink = () => {
+const CreateLink: FC = () => {
   const [vis, setVis] = useState(true);
   const { pathname } = useLocation();
   const { visible, closeLinkModal } = useContext(LinkContext);

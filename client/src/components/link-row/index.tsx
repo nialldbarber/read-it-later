@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useMutation } from '@apollo/react-hooks';
 import Checkbox from '~/components/checkbox';
@@ -9,9 +9,15 @@ import { getCategoryName, getCategoryId } from '~/utils/routing';
 import { ARCHIVE_LINK } from '~/components/link-row/schema';
 import { GET_LINKS_BY_CATEGORY } from '~/views/category/schema';
 
-const LinkRow = ({ id, link, text }) => {
+interface LinkRowProps {
+  id: string; 
+  link: string; 
+  text: string;
+}
+
+const LinkRow: FC<LinkRowProps> = ({ id, link, text }) => {
   const { pathname } = useLocation();
-  const [archiveLink, { loading, error }] = useMutation(ARCHIVE_LINK, {
+  const [archiveLink] = useMutation(ARCHIVE_LINK, {
     onError(err) {
       console.log(err.graphQLErrors[0]);
     },

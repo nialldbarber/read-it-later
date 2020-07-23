@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 
+interface CheckboxProps {
+  check: () => void
+}
+
 const tickVariants = {
-  pressed: (isChecked) => ({ pathLength: isChecked ? 0.85 : 0.2 }),
+  pressed: (isChecked: boolean) => ({ pathLength: isChecked ? 0.85 : 0.2 }),
   checked: { pathLength: 1 },
   unchecked: { pathLength: 0 },
 };
@@ -14,8 +18,8 @@ const boxVariants = {
   unchecked: { stroke: '#ddd', strokeWidth: 50 },
 };
 
-const Checkbox = ({ check }) => {
-  const [isChecked, setIsChecked] = useState(false);
+const Checkbox: FC<CheckboxProps> = ({ check }) => {
+  const [isChecked, setIsChecked] = useState<boolean>(false);
   const pathLength = useMotionValue(0);
   const opacity = useTransform(pathLength, [0.05, 0.15], [0, 1]);
 

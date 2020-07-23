@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { FC, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useMutation } from '@apollo/react-hooks';
 import { CategoryContext } from '~/state/context/category';
@@ -10,7 +10,7 @@ import Form from '~/components/form';
 import { CREATE_CATEGORY } from '~/components/create-category/schema';
 import { GET_ALL_CATEGORIES } from '~/views/homepage/schema';
 
-const CreateCategory = () => {
+const CreateCategory: FC = () => {
   const { push } = useHistory();
   const { visible, closeCategoryModal } = useContext(CategoryContext);
   const {

@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Input } from '~/styles/components/modals';
 import { Container } from '~/styles/components/button';
 
-const Login = () => {
+const Login: FC = () => {
   return (
     <div>
       <Input type="text" placeholder="Username" />

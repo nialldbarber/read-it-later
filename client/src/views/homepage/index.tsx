@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { motion } from 'framer-motion';
 import useForm from '~/hooks/useForm';
@@ -11,18 +11,34 @@ import { Header } from '~/styles/components/typography';
 import { stagger, fadeInUp, pageVariants } from '~/utils/animation';
 import { GET_ALL_CATEGORIES } from '~/views/homepage/schema';
 
-const Homepage = () => {
+interface Link {
+  _id: string;
+  text: string;
+}
+
+interface Category {
+  _id: string;
+  category: string;
+  links: Link[];
+}
+
+const Homepage: FC = () => {
   const { values, handleChange } = useForm({ search: '' });
   const { loading, error, data } = useQuery(GET_ALL_CATEGORIES);
 
   if (loading) return <Loading />;
   if (error) return <p>Error :(</p>;
 
-  const filteredResults = data?.getAllCategories.filter((result) => {
-    return result.category.toLowerCase().includes(values?.search?.toLowerCase());
+  const allCategories = data?.getAllCategories;
+
+  const filteredResults = allCategories.filter((result: Category) => {
+    return result
+            .category
+            .toLowerCase()
+            .includes(values?.search?.toLowerCase());
   });
 
-  const categories = filteredResults.length <= 0 ? data?.getAllCategories : filteredResults;
+  const categories = filteredResults.length <= 0 ? allCategories : filteredResults;
 
   return (
     <motion.div initial="initial" animate="animate" exit="exit" variants={pageVariants}>
@@ -39,7 +55,7 @@ const Homepage = () => {
           />
         </div>
         <CardContainer variants={stagger}>
-          {categories.map(({ _id, category }) => (
+          {categories.map(({ _id, category }: Category) => (
             <motion.div
               dragConstraints={{ left: 0, right: 0 }}
               key={_id}

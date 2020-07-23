@@ -4,16 +4,23 @@
  *
  * @param {*} url
  */
-export const formatUrl = (url: string) => {
-  url = url.replace(/\s+/g, '-').toLowerCase();
-  return url;
+const formatUrl = (url: string) => {
+  return url.replace(/\s+/g, '-').toLowerCase();
 };
 
-export const replaceDashWithSpace = (text: string) => {
-  text = text.replace(/-/, ' ').toLowerCase();
-  return text;
+const replaceDashWithSpace = (text: string) => {
+  return text.replace(/-/, ' ').toLowerCase();
 };
 
-export const getCategoryName = (path: string) => path.replace(/^\/([^\/]*).*$/, '$1');
+const getCategoryName = (path: string) => {
+  return path.replace(/^\/([^\/]*).*$/, '$1');
+}
 
-export const getCategoryId = (id: any) => id.split('/').pop(-1);
+const getCategoryId = (id: string) => id.split('/').pop(-1);
+
+export { 
+  formatUrl, 
+  replaceDashWithSpace, 
+  getCategoryName, 
+  getCategoryId 
+};
